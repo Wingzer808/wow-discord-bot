@@ -17,7 +17,7 @@ function handleMessage (message) {
   if (!message.content.startsWith(config.commandPrefix) || message.content.length < 2) { return }
 
   Bluebird.resolve(normalise(message.content))
-    .spread((command, character, realm = 'saurfang', region = 'us') => {
+    .spread((command, character, realm = 'tichondrius', region = 'us') => {
       console.log(command, character, realm, region)
       message.channel.startTyping()
       return require(`./commands/${command}`)({ character, realm, region })
